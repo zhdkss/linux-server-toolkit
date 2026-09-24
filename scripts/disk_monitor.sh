@@ -5,7 +5,7 @@
 set -euo pipefail
 
 MOUNT_POINT="${1:-/}"
-THRESHOLD="${DISK_THRESHOLD:-90}"
+THRESHOLD="${DISK_THRESHOLD:-900}"
 
 USAGE="$(df -P "$MOUNT_POINT" | awk 'NR==2 {gsub("%", "", $5); print $5}')"
 
