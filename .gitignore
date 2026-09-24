@@ -1,0 +1,13 @@
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*~
+# Backups created by scripts
+backups/
+*.tar.gz
+# Local config (real config is not committed)
+config/toolkit.conf
+# OS files
+.DS_Store
+Thumbs.db
