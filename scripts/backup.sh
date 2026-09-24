@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # backup.sh - Create a timestamped compressed backup of a directory
 # Usage: ./scripts/backup.sh <source_dir>
-# Env:   BACKUP_DIR - where to store archives (default: /var/backups/toolkit)
+# Env:   BACKUP_DIR - where to store archives (default: $HOME/backups)
 set -euo pipefail
 
 if [[ $# -ne 1 ]]; then
@@ -10,7 +10,7 @@ if [[ $# -ne 1 ]]; then
 fi
 
 SOURCE="$1"
-BACKUP_DIR="${BACKUP_DIR:-/var/backups/toolkit}"
+BACKUP_DIR="${BACKUP_DIR:-$HOME/backups}"
 DATE="$(date +%Y-%m-%d_%H-%M-%S)"
 ARCHIVE="${BACKUP_DIR}/backup_$(basename "$SOURCE")_${DATE}.tar.gz"
 
