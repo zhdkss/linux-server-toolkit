@@ -7,7 +7,7 @@ set -euo pipefail
 MOUNT_POINT="${1:-/}"
 THRESHOLD="${DISK_THRESHOLD:-900}"
 
-USAGE="$(df -P "$MOUNT_POINT" | awk 'NR==2 {gsub("%", "", $5); print $5}')"
+USAGE="$(df -P "$MOUNT_POINT" | awk 'NR==2 {gsub("%", "", $(NF-1)); print $(NF-1)}')"
 
 if (( USAGE >= THRESHOLD )); then
     echo "WARNING: disk usage on $MOUNT_POINT is ${USAGE}% (threshold ${THRESHOLD}%)"
